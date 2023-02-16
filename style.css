@@ -1,0 +1,128 @@
+body {
+  padding-top: 5rem;
+  background-color: #fffceb;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand.abs {
+    position: absolute;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fffceb;
+  }
+}
+
+.navbar-brand {
+  font-family: Great Vibes;
+  font-size: xx-large;
+}
+
+.navigation,
+.login {
+  font-family: Farsan;
+  font-size: larger;
+}
+
+.login:hover,
+.reservation:hover {
+  background-color: #ffe66d;
+  color: #212529;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 50vw;
+  object-fit: cover;
+}
+
+.card-title {
+  font-family: Farsan;
+  font-size: xx-large;
+}
+
+.card-text {
+  font-family: Hind;
+  font-size: medium;
+}
+
+.reservation {
+  font-family: Great Vibes;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    width: 100%;
+    height: 120vw;
+    object-fit: cover;
+  }
+}
+
+.ohTitle {
+  font-family: Farsan;
+  font-weight: bold;
+}
+
+.ohTableStructure {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.opening-hours {
+  max-width: auto;
+  min-width: auto;
+}
+
+.ohTable > td {
+  font-family: Hind;
+  font-weight: 400;
+  padding: 0.1em 0.8em;
+}
+
+.ohTable > td > span {
+  font-family: Farsan;
+  font-weight: 800;
+}
+
+.menuPageTitle,
+.menuPageSub,
+.formulaPageTitle,
+.formulaTitle {
+  text-align: center;
+  font-family: Great Vibes;
+}
+
+.dish {
+  font-family: Farsan;
+  font-size: larger;
+}
+
+.dishPrice {
+  font-family: Hind;
+  text-align: end;
+}
+
+.dish,
+.dishPrice {
+  padding: 1em 1em;
+  vertical-align: center;
+}
+
+.food {
+  width: 100%;
+}
+
+.formulaSet,
+.formulaPrice {
+  text-align: center;
+  font-family: Farsan;
+}
+
+.formula {
+  border: thick double #212529;
+  background-color: #ffe66d;
+  padding: 1rem;
+}
