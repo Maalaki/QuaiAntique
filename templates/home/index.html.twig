@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Quai Antique{% endblock %}
+
+{% block body %}
+    <!-- Cards -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card h-100">
+                    <img
+                            src="{{ asset('/img/tartiflette.jpg') }}"
+                            class="card-img-top"
+                            alt="La tartiflette"
+                            title="Notre Tartiflette"
+                    />
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tartiflette</h5>
+                        <p class="card-text">
+                            Savourez ce classique de la cuisine savoyarde en version
+                            gastronomique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card h-100">
+                    <img
+                            src="{{ asset('/img/fondue-savoyarde.jpg') }}"
+                            class="card-img-top"
+                            alt="La fondue savoyarde"
+                            title="Notre Fondue Savoyarde"
+                    />
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Fondue savoyarde</h5>
+                        <p class="card-text">
+                            Dégustez notre fondue savoyarde à base de Beaufort, Abondance et
+                            meule de Savoie.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card h-100">
+                    <img
+                            src="{{ asset('/img/croziflette.jpg') }}"
+                            class="card-img-top"
+                            alt=" La croziflette"
+                            title="Notre Croziflette"
+                    >
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Croziflette</h5>
+                        <p class="card-text">
+                            Découvrez cette spécialité savoyarde à base de crozets, de
+                            jambon cru et de Reblochon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Quai Antique{% endblock %}
+
+{% block body %}
+    <!-- menus du restaurant -->
+
+    <div class="container">
+        <div class="formulaPageTitle"><h1>Nos Menus</h1></div>
+        <br/>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 justify-content-center">
+                <div class="col formula m-3">
+                    <h3 class="formulaTitle">Menu découverte</h3>
+                    <br/>
+                    <h5 class="formulaSet">Entrée + Plat</h5>
+                    <h5 class="formulaSet">ou</h5>
+                    <h5 class="formulaSet">Plat + Dessert</h5>
+                    <h3 class="formulaPrice">22€</h3>
+                </div>
+                <div class="col formula m-3">
+                    <h3 class="formulaTitle">Menu découverte</h3>
+                    <br/>
+                    <h5 class="formulaSet">Entrée + Plat + Dessert</h5>
+                    <h3 class="formulaPrice">28€</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

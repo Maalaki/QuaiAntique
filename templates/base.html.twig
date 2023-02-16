@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Le Quai Antique{% endblock %}</title>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Great+Vibes|Farsan|Hind"
+    />
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand abs" href="/">Le Quai Antique</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a
+                            class="nav-link navigation"
+                            aria-current="page"
+                            href="/menu"
+                    >Carte</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navigation" href="/formula">Menus</a>
+                </li>
+            </ul>
+            <button class="btn btn-light login" type="button">
+                Se connecter
+            </button>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    {% block body %}
+    {% endblock %}
+</div>
+
+<!-- Reservation button -->
+
+<div class="container-fluid">
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <button class="btn btn-outline-dark reservation" type="button">
+            Réserver
+        </button>
+    </div>
+</div>
+<br/>
+
+<!-- Footer with opening hours -->
+
+<div class="container-fluid bg-dark text-light">
+    <footer>
+        <div class="opening-hours mx-auto">
+            <h3 class="ohTitle text-center">Nos horaires d'ouverture</h3>
+            <table class="ohTableStructure">
+                <tr class="monday ohTable">
+                    <td><span>Lundi</span></td>
+                    <td>Fermé</td>
+                </tr>
+                <tr class="tuesday ohTable">
+                    <td><span>Mardi</span></td>
+                    <td>12:00 - 14:00</td>
+                    <td>19:00 - 22:00</td>
+                </tr>
+                <tr class="wednesday ohTable">
+                    <td><span>Mercredi</span></td>
+                    <td>12:00 - 14:00</td>
+                    <td>19:00 - 22:00</td>
+                </tr>
+                <tr class="thursday ohTable">
+                    <td><span>Jeudi</span></td>
+                    <td>12:00 - 14:00</td>
+                    <td>19:00 - 22:00</td>
+                </tr>
+                <tr class="friday ohTable">
+                    <td><span>Vendredi</span></td>
+                    <td>12:00 - 14:00</td>
+                    <td>19:00 - 22:00</td>
+                </tr>
+                <tr class="saturday ohTable">
+                    <td><span>Samedi</span></td>
+                    <td>12:00 - 14:00</td>
+                    <td>19:00 - 22:00</td>
+                </tr>
+                <tr class="sunday ohTable">
+                    <td><span>Dimanche</span></td>
+                    <td>12:00 - 14:00</td>
+                    <td>Fermé</td>
+                </tr>
+            </table>
+            <br/>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
