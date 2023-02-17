@@ -28,7 +28,7 @@ class AppFixtures extends Fixture
         for ($i=1; $i <= 50; $i++) {
             $article = new User();
             $article->setEmail($this->faker->email())
-                ->setPassword($this->faker->password());
+                ->setPassword($this->faker->password(git));
 
             $manager->persist($article);
         }
