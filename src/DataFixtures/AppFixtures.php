@@ -26,11 +26,13 @@ class AppFixtures extends Fixture
         // Création d'une boucle qui va créer 50 articles aléatoires
         // Chaque article aura un titre, un contenu, une date de publication qui seront générés aléatoirement
         for ($i=1; $i <= 50; $i++) {
-            $article = new User();
-            $article->setEmail($this->faker->email())
-                ->setPassword($this->faker->password(git));
+            $user = new User();
+            $user->setEmail($this->faker->email())
+                ->setPassword($this->faker->password())
+                ->setCustomersNb($this->faker->numberBetween($int1 = 0,$int2 = 10))
+                ->setAllergy($this->faker->text());
 
-            $manager->persist($article);
+            $manager->persist($user);
         }
         $manager->flush();
     }
