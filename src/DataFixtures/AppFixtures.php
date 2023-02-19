@@ -7,6 +7,7 @@ use Faker\Generator;
 use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
@@ -28,9 +29,10 @@ class AppFixtures extends Fixture
         for ($i=1; $i <= 50; $i++) {
             $user = new User();
             $user->setEmail($this->faker->email())
-                ->setPassword($this->faker->password())
+                ->setRoles(['ROLE_USER'])
                 ->setCustomersNb($this->faker->numberBetween($int1 = 0,$int2 = 10))
-                ->setAllergy($this->faker->text());
+                ->setAllergy($this->faker->text())
+                ->setPlainPassword('password');
 
             $manager->persist($user);
         }

@@ -26,7 +26,7 @@
         <a class="navbar-brand abs" href="/">Le Quai Antique</a>
         <button
                 class="navbar-toggler"
-                type="button"
+                role="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
@@ -49,9 +49,9 @@
                     <a class="nav-link navigation" href="/formula">Menus</a>
                 </li>
             </ul>
-            <button class="btn btn-light login" type="button">
+            <a class="btn btn-light login" role="button" href="/connexion">
                 Se connecter
-            </button>
+            </a>
 
         </div>
     </div>
@@ -60,16 +60,6 @@
 {% block body %}
 {% endblock %}
 
-<!-- Reservation button -->
-
-<div class="container-fluid">
-    <div class="d-grid gap-2 col-4 mx-auto">
-        <button class="btn btn-outline-dark reservation" type="button">
-            Réserver
-        </button>
-    </div>
-</div>
-<br/>
 
 <!-- Footer with opening hours -->
 
@@ -117,5 +107,6 @@
         </div>
     </footer>
 </div>
+
 </body>
 </html>
