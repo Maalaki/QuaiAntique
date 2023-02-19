@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Quai Antique{% endblock %}
+
+{% block body %}
+    <!-- carte du restaurant -->
+
+    <div class="container">
+        <div class="menuPageTitle"><h1>La Carte</h1></div>
+        <br/>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+            <!-- Entrées -->
+
+            <div class="col">
+                <div class="menuPageSub">
+                    <h3>Nos Entrées</h3>
+                </div>
+                <div class="starters food">
+                    {% for menuitem in menu %}
+                        {% if menuitem.category == 'Entrée' %}
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td class="dish">{{ menuitem.title }}</td>
+                                    <td class="dishPrice">{{ menuitem.price }}€</td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Plats -->
+
+            <div class="col">
+                <div class="menuPageSub">
+                    <h3>Nos Plats</h3></div>
+                <div class="mainCourse food">
+                    {% for menuitem in menu %}
+                        {% if menuitem.category == 'Plat' %}
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td class="dish">{{ menuitem.title }}</td>
+                                    <td class="dishPrice">{{ menuitem.price }}€</td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Desserts -->
+
+            <div class="col">
+                <div class="menuPageSub">
+                    <h3>Nos Desserts</h3></div>
+                <div class="desserts food">
+                    {% for menuitem in menu %}
+                        {% if menuitem.category == 'Dessert' %}
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td class="dish">{{ menuitem.title }}</td>
+                                    <td class="dishPrice">{{ menuitem.price }}€</td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Boissons -->
+
+            <div class="col">
+                <div class="menuPageSub">
+                    <h3>Les Boissons</h3></div>
+                <div class="beverages food">
+                    {% for menuitem in menu %}
+                        {% if menuitem.category == 'Boisson' %}
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td class="dish">{{ menuitem.title }}</td>
+                                    <td class="dishPrice">{{ menuitem.price }}€</td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <!-- Reservation button -->
+
+    <div class="container-fluid">
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <button class="btn btn-outline-dark reservation" type="button">
+                Réserver
+            </button>
+        </div>
+    </div>
+    <br/>
+
+{% endblock %}
