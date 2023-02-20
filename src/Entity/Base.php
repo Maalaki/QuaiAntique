@@ -2,24 +2,24 @@
 
 namespace App\Entity;
 
-use App\Repository\HoursRepository;
+use App\Repository\BaseRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: HoursRepository::class)]
-class Hours
+#[ORM\Entity(repositoryClass: BaseRepository::class)]
+class Base
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 25)]
     private ?string $day = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 25)]
     private ?string $time = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 25)]
     private ?string $afternoon = null;
 
     public function getId(): ?int

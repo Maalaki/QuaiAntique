@@ -49,9 +49,24 @@
                     <a class="nav-link navigation" href="/formula">Menus</a>
                 </li>
             </ul>
-            <a class="btn btn-light login" role="button" href="/connexion">
-                Se connecter
-            </a>
+
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a class="btn btn-light login" role="button" href="{{ path('security.logout') }}">
+                    Se déconnecter
+                </a>
+                {% if 'ROLE_ADMIN' in app.user.roles|default('undefined') %}
+                <a class="btn btn-light login ms-3" role="button" href="/admin">
+                    Administration
+                </a>
+                {% endif %}
+            {% else %}
+                <a class="btn btn-light login" role="button" href="/connexion">
+                    Se connecter
+                </a>
+            {% endif %}
+
+
 
         </div>
     </div>
@@ -60,13 +75,14 @@
 {% block body %}
 {% endblock %}
 
-
 <!-- Footer with opening hours -->
 
 <div class="container-fluid bg-dark text-light">
     <footer>
+
         <div class="opening-hours mx-auto">
             <h3 class="ohTitle text-center">Nos horaires d'ouverture</h3>
+
             <table class="ohTableStructure">
                 <tr class="monday ohTable">
                     <td><span>Lundi</span></td>
