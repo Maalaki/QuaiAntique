@@ -1,0 +1,3 @@
+<?php //App%255CController%255CHoursController
+
+return [PHP_INT_MAX, []];
