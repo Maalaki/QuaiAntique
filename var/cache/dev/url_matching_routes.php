@@ -18,7 +18,7 @@ return [
         '/booking' => [[['_route' => 'booking', '_controller' => 'App\\Controller\\BookingController::index'], null, null, null, false, false, null]],
         '/formula' => [[['_route' => 'formula', '_controller' => 'App\\Controller\\FormulaController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, false, false, null]],
-        '/hours' => [[['_route' => 'hours', '_controller' => 'App\\Controller\\HoursController::index'], null, null, null, false, false, null]],
+        '/hours' => [[['_route' => 'hours', '_controller' => 'App\\Controller\\HoursController::hours'], null, null, null, false, false, null]],
         '/menu' => [[['_route' => 'menu', '_controller' => 'App\\Controller\\MenuController::index'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'security.login', '_controller' => 'App\\Controller\\SecurityController::login'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/deconnexion' => [[['_route' => 'security.logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],

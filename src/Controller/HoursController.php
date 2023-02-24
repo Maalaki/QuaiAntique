@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HoursController extends AbstractController
 {
     #[Route('/hours', name: 'hours')]
-    public function index(HoursRepository $hoursRepository): Response
+    public function hours(HoursRepository $hoursRepository): Response
     {
         $hours = $hoursRepository ->findBy([], ['id' => 'asc']);
 

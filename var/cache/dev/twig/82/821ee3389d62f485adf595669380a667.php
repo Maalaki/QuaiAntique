@@ -149,7 +149,6 @@ class __TwigTemplate_6c5f67fa7f73e63a493ff540e291f917 extends Template
 
         <div class=\"opening-hours mx-auto\">
             <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
-
             <table class=\"ohTableStructure\">
                 <tr class=\"monday ohTable\">
                     <td><span>Lundi</span></td>
@@ -297,7 +296,7 @@ class __TwigTemplate_6c5f67fa7f73e63a493ff540e291f917 extends Template
 
     public function getDebugInfo()
     {
-        return array (  271 => 75,  258 => 16,  248 => 15,  235 => 12,  225 => 11,  206 => 5,  144 => 77,  142 => 75,  133 => 68,  127 => 64,  124 => 63,  118 => 59,  116 => 58,  109 => 55,  107 => 54,  69 => 18,  67 => 15,  64 => 14,  61 => 11,  53 => 5,  47 => 1,);
+        return array (  270 => 75,  257 => 16,  247 => 15,  234 => 12,  224 => 11,  205 => 5,  144 => 77,  142 => 75,  133 => 68,  127 => 64,  124 => 63,  118 => 59,  116 => 58,  109 => 55,  107 => 54,  69 => 18,  67 => 15,  64 => 14,  61 => 11,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -386,7 +385,6 @@ class __TwigTemplate_6c5f67fa7f73e63a493ff540e291f917 extends Template
 
         <div class=\"opening-hours mx-auto\">
             <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
-
             <table class=\"ohTableStructure\">
                 <tr class=\"monday ohTable\">
                     <td><span>Lundi</span></td>

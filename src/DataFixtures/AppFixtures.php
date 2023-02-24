@@ -2,7 +2,9 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Base;
 use App\Entity\Formula;
+use App\Entity\Hours;
 use App\Entity\Menu;
 use Faker\Factory;
 use Faker\Generator;
@@ -37,7 +39,7 @@ class AppFixtures extends Fixture
 
         // Création d'une boucle qui va créer 50 articles aléatoires
         // Chaque article aura un titre, un contenu, une date de publication qui seront générés aléatoirement
-        for ($i=1; $i <= 50; $i++) {
+        for ($i=1; $i <= 10; $i++) {
             $user = new User();
             $user->setEmail($this->faker->email())
                 ->setRoles(['ROLE_USER'])
@@ -245,6 +247,14 @@ class AppFixtures extends Fixture
 
         $formula[] = $formula2;
         $manager->persist($formula2);
+
+        $ophours1 = new Hours();
+        $ophours1->setDay('Lundi')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('19:00');
+
+        $ophours[] = $ophours1;
+        $manager->persist($ophours1);
 
         $manager->flush();
     }

@@ -470,10 +470,6 @@
     <service id="App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Repository\BaseRepository" class="App\Repository\BaseRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
     <service id="App\Repository\BookingRepository" class="App\Repository\BookingRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -4448,7 +4444,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.MvfDxCl"/>
+      <argument type="service" id=".service_locator.W7FNhah"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5081,10 +5077,6 @@
       </call>
       <call method="addRuntimeLoader">
         <argument type="service" id="twig.runtime_loader"/>
-      </call>
-      <call method="addGlobal">
-        <argument>hours</argument>
-        <argument>$hours</argument>
       </call>
       <call method="registerUndefinedFilterCallback">
         <argument type="collection">
@@ -6942,8 +6934,6 @@
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationType" class="App\Form\RegistrationType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BaseRepository" class="App\Repository\BaseRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\BaseRepository" class="App\Repository\BaseRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BookingRepository" class="App\Repository\BookingRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BookingRepository" class="App\Repository\BookingRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FormulaRepository" class="App\Repository\FormulaRepository" autowire="true" abstract="true"/>
@@ -7465,7 +7455,7 @@
         <argument key="manager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.ChlZocI" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CnfW89z" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\BaseCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
@@ -7575,7 +7565,8 @@
         <argument key="App\Controller\Admin\UserCrudController::renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\UserCrudController::updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\FormulaController::index" type="service_closure" id=".service_locator.hk1DqdA"/>
-        <argument key="App\Controller\HoursController::index" type="service_closure" id=".service_locator._tesxRY"/>
+        <argument key="App\Controller\HomeController::hours" type="service_closure" id=".service_locator._tesxRY"/>
+        <argument key="App\Controller\HoursController::hours" type="service_closure" id=".service_locator._tesxRY"/>
         <argument key="App\Controller\MenuController::index" type="service_closure" id=".service_locator.tlBnDBh"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.rSTd.nA"/>
         <argument key="App\Controller\SecurityController::registration" type="service_closure" id=".service_locator.V71r_w4"/>
@@ -7690,7 +7681,8 @@
         <argument key="App\Controller\Admin\UserCrudController:renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\UserCrudController:updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\FormulaController:index" type="service_closure" id=".service_locator.hk1DqdA"/>
-        <argument key="App\Controller\HoursController:index" type="service_closure" id=".service_locator._tesxRY"/>
+        <argument key="App\Controller\HomeController:hours" type="service_closure" id=".service_locator._tesxRY"/>
+        <argument key="App\Controller\HoursController:hours" type="service_closure" id=".service_locator._tesxRY"/>
         <argument key="App\Controller\MenuController:index" type="service_closure" id=".service_locator.tlBnDBh"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.rSTd.nA"/>
         <argument key="App\Controller\SecurityController:registration" type="service_closure" id=".service_locator.V71r_w4"/>
@@ -7989,10 +7981,9 @@
         <argument key="App\EntityListener\UserListener" type="service_closure" id="App\EntityListener\UserListener"/>
       </argument>
     </service>
-    <service id=".service_locator.MvfDxCl" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.W7FNhah" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\BaseRepository" type="service_closure" id="App\Repository\BaseRepository"/>
         <argument key="App\Repository\BookingRepository" type="service_closure" id="App\Repository\BookingRepository"/>
         <argument key="App\Repository\FormulaRepository" type="service_closure" id="App\Repository\FormulaRepository"/>
         <argument key="App\Repository\HoursRepository" type="service_closure" id="App\Repository\HoursRepository"/>
@@ -8694,12 +8685,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ChlZocI"/>
+      <argument type="service" id=".service_locator.CnfW89z"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ChlZocI"/>
+      <argument type="service" id=".service_locator.CnfW89z"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9716,7 +9707,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcherInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ChlZocI"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.CnfW89z"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9742,7 +9733,7 @@
     <service id=".service_locator.twrFs.m" alias=".service_locator.jwjltq_"/>
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
-    <service id=".service_locator.SV.4sV7" alias=".service_locator.ChlZocI"/>
+    <service id=".service_locator.R1LDocU" alias=".service_locator.CnfW89z"/>
     <service id=".service_locator.9XMoc9I" alias=".service_locator.kzegaci"/>
     <service id=".service_locator.UUkSgKW" alias=".service_locator.jwa3M9B"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>

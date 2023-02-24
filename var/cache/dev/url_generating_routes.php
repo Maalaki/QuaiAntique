@@ -20,7 +20,7 @@ return [
     'booking' => [[], ['_controller' => 'App\\Controller\\BookingController::index'], [], [['text', '/booking']], [], [], []],
     'formula' => [[], ['_controller' => 'App\\Controller\\FormulaController::index'], [], [['text', '/formula']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/']], [], [], []],
-    'hours' => [[], ['_controller' => 'App\\Controller\\HoursController::index'], [], [['text', '/hours']], [], [], []],
+    'hours' => [[], ['_controller' => 'App\\Controller\\HoursController::hours'], [], [['text', '/hours']], [], [], []],
     'menu' => [[], ['_controller' => 'App\\Controller\\MenuController::index'], [], [['text', '/menu']], [], [], []],
     'security.login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/connexion']], [], [], []],
     'security.logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/deconnexion']], [], [], []],
