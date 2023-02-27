@@ -538,3 +538,5 @@ edf350,127.0.0.1,GET,http://resto.localhost/hours,1677496060,a734fa,200
 a734fa,127.0.0.1,GET,http://resto.localhost/formula,1677496060,,200
 960688,127.0.0.1,GET,http://resto.localhost/hours,1677496064,21cda6,200
 21cda6,127.0.0.1,GET,http://resto.localhost/menu,1677496064,,200
+54fd38,127.0.0.1,GET,http://resto.localhost/hours,1677499149,af1d52,200
+af1d52,127.0.0.1,GET,http://resto.localhost/menu,1677499149,,200
