@@ -2,17 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Base;
+use App\Entity\Hours;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class BaseCrudController extends AbstractCrudController
+class HoursCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Base::class;
+        return Hours::class;
     }
 
     public function configureCrud(Crud $crud): Crud

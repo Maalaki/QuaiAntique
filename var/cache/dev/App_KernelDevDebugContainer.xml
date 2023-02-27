@@ -363,7 +363,7 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
-    <service id="App\Controller\Admin\BaseCrudController" class="App\Controller\Admin\BaseCrudController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\Admin\BaseCrudController" class="HoursCrudController" public="true" autowire="true" autoconfigure="true">
       <tag name="ea.crud_controller"/>
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -6885,10 +6885,10 @@
       <tag name="assets.package" package="easyadmin.assets.package"/>
       <argument type="service" id="request_stack"/>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\BaseCrudController" class="App\Controller\Admin\BaseCrudController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\BaseCrudController" class="App\Controller\Admin\BaseCrudController" autowire="true" abstract="true"/>
-    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\BaseCrudController" class="App\Controller\Admin\BaseCrudController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Admin\BaseCrudController" class="App\Controller\Admin\BaseCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" autowire="true" abstract="true"/>
@@ -8234,7 +8234,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry" class="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry">
       <argument>%env(APP_SECRET)%</argument>
       <argument type="collection">
-        <argument>App\Controller\Admin\BaseCrudController</argument>
+        <argument>HoursCrudController</argument>
         <argument>App\Controller\Admin\BookingCrudController</argument>
         <argument>App\Controller\Admin\FormulaCrudController</argument>
         <argument>App\Controller\Admin\MenuCrudController</argument>
@@ -8287,7 +8287,7 @@
     </service>
     <service id=".service_locator.5eP_qL9.App\Controller\Admin\BaseCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\BaseCrudController"/>
-      <argument>App\Controller\Admin\BaseCrudController</argument>
+      <argument>HoursCrudController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.5eP_qL9" method="withContext"/>
     </service>
