@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Base;
+use App\Entity\Hours;
 use App\Entity\Booking;
 use App\Entity\Formula;
 use App\Entity\Menu;
@@ -37,7 +37,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Carte', 'fa-solid fa-bowl-food', Menu::class);
         yield MenuItem::linkToCrud('Menus', 'fa-solid fa-heart',Formula::class);
         yield MenuItem::linkToCrud('Réservations', 'fa-solid fa-people-group', Booking::class);
-        yield MenuItem::linkToCrud('Horaires', 'fa-solid fa-clock', Base::class);
+        yield MenuItem::linkToCrud('Horaires', 'fa-solid fa-clock', Hours::class);
         yield MenuItem::linkToCrud('Galerie', 'fa-solid fa-image', User::class);
 
     }
