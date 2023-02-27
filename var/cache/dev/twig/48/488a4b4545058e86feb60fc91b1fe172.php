@@ -40,45 +40,44 @@ class __TwigTemplate_0202dbbc2fbc9d89d2091d4372f37c8b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/hours/index.html.twig"));
 
         // line 1
-        echo "
- <!-- Footer with opening hours -->
+        echo "<!-- Footer with opening hours -->
 
-    <div class=\"container-fluid bg-dark text-light\">
-        <footer>
-
-            <div class=\"opening-hours mx-auto\">
-                <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
+<div class=\"container-fluid bg-dark text-light\">
+    <footer>
+        <div class=\"opening-hours mx-auto\">
+            <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
+            <table class=\"ohTableStructure\">
                 ";
-        // line 9
+        // line 8
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 9, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["hours"]) || array_key_exists("hours", $context) ? $context["hours"] : (function () { throw new RuntimeError('Variable "hours" does not exist.', 8, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["hour"]) {
+            // line 9
+            echo "                    <tr class=\"ohTable\">
+                        <td class=\"w-25\"><span>";
             // line 10
-            echo "                    <table class=\"ohTableStructure\">
-                        <tr class=\"ohTable\">
-                            <td><span>";
-            // line 12
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["hour"], "day", [], "any", false, false, false, 12), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["hour"], "day", [], "any", false, false, false, 10), "html", null, true);
             echo "</span></td>
-                            <td>";
-            // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["hour"], "time", [], "any", false, false, false, 13), "html", null, true);
+                        <td class=\"w-25\">";
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["hour"], "time", [], "any", false, false, false, 11), "html", null, true);
             echo "</td>
-                            <td>";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["hour"], "afternoon", [], "any", false, false, false, 14), "html", null, true);
+                        <td class=\"w-25\">";
+            // line 12
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["hour"], "afternoon", [], "any", false, false, false, 12), "html", null, true);
             echo "</td>
-                        </tr>
-                    </table>
+                    </tr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['hour'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "            </div>
-        </footer>
-    </div>
+        // line 15
+        echo "            </table>
+            <br>
+        </div>
+    </footer>
+</div>
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -100,31 +99,30 @@ class __TwigTemplate_0202dbbc2fbc9d89d2091d4372f37c8b extends Template
 
     public function getDebugInfo()
     {
-        return array (  79 => 18,  69 => 14,  65 => 13,  61 => 12,  57 => 10,  53 => 9,  43 => 1,);
+        return array (  76 => 15,  67 => 12,  63 => 11,  59 => 10,  56 => 9,  52 => 8,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
- <!-- Footer with opening hours -->
+        return new Source("<!-- Footer with opening hours -->
 
-    <div class=\"container-fluid bg-dark text-light\">
-        <footer>
-
-            <div class=\"opening-hours mx-auto\">
-                <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
+<div class=\"container-fluid bg-dark text-light\">
+    <footer>
+        <div class=\"opening-hours mx-auto\">
+            <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
+            <table class=\"ohTableStructure\">
                 {% for hour in hours %}
-                    <table class=\"ohTableStructure\">
-                        <tr class=\"ohTable\">
-                            <td><span>{{ hour.day }}</span></td>
-                            <td>{{ hour.time }}</td>
-                            <td>{{ hour.afternoon }}</td>
-                        </tr>
-                    </table>
+                    <tr class=\"ohTable\">
+                        <td class=\"w-25\"><span>{{ hour.day }}</span></td>
+                        <td class=\"w-25\">{{ hour.time }}</td>
+                        <td class=\"w-25\">{{ hour.afternoon }}</td>
+                    </tr>
                 {% endfor %}
-            </div>
-        </footer>
-    </div>
+            </table>
+            <br>
+        </div>
+    </footer>
+</div>
 ", "home/hours/index.html.twig", "C:\\xampp\\apps\\resto\\templates\\home\\hours\\index.html.twig");
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Base;
 use App\Entity\Formula;
 use App\Entity\Hours;
 use App\Entity\Menu;
@@ -250,11 +249,59 @@ class AppFixtures extends Fixture
 
         $ophours1 = new Hours();
         $ophours1->setDay('Lundi')
-            ->setTime('12:00 - 14:00')
-            ->setAfternoon('19:00');
+            ->setTime('Fermé')
+            ->setAfternoon('Fermé');
 
         $ophours[] = $ophours1;
         $manager->persist($ophours1);
+
+        $ophours2 = new Hours();
+        $ophours2->setDay('Mardi')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('19:00 - 22:00');
+
+        $ophours[] = $ophours2;
+        $manager->persist($ophours2);
+
+        $ophours3 = new Hours();
+        $ophours3->setDay('Mercredi')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('19:00 - 22:00');
+
+        $ophours[] = $ophours3;
+        $manager->persist($ophours3);
+
+        $ophours4 = new Hours();
+        $ophours4->setDay('Jeudi')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('19:00 - 22:00');
+
+        $ophours[] = $ophours4;
+        $manager->persist($ophours4);
+
+        $ophours5 = new Hours();
+        $ophours5->setDay('Vendredi')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('19:00 - 22:00');
+
+        $ophours[] = $ophours5;
+        $manager->persist($ophours5);
+
+        $ophours6 = new Hours();
+        $ophours6->setDay('Samedi')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('19:00 - 22:00');
+
+        $ophours[] = $ophours6;
+        $manager->persist($ophours6);
+
+        $ophours7 = new Hours();
+        $ophours7->setDay('Dimanche')
+            ->setTime('12:00 - 14:00')
+            ->setAfternoon('Fermé');
+
+        $ophours[] = $ophours7;
+        $manager->persist($ophours7);
 
         $manager->flush();
     }

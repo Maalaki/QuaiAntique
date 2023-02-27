@@ -1,20 +1,19 @@
+<!-- Footer with opening hours -->
 
- <!-- Footer with opening hours -->
-
-    <div class="container-fluid bg-dark text-light">
-        <footer>
-
-            <div class="opening-hours mx-auto">
-                <h3 class="ohTitle text-center">Nos horaires d'ouverture</h3>
+<div class="container-fluid bg-dark text-light">
+    <footer>
+        <div class="opening-hours mx-auto">
+            <h3 class="ohTitle text-center">Nos horaires d'ouverture</h3>
+            <table class="ohTableStructure">
                 {% for hour in hours %}
-                    <table class="ohTableStructure">
-                        <tr class="ohTable">
-                            <td><span>{{ hour.day }}</span></td>
-                            <td>{{ hour.time }}</td>
-                            <td>{{ hour.afternoon }}</td>
-                        </tr>
-                    </table>
+                    <tr class="ohTable">
+                        <td class="w-25"><span>{{ hour.day }}</span></td>
+                        <td class="w-25">{{ hour.time }}</td>
+                        <td class="w-25">{{ hour.afternoon }}</td>
+                    </tr>
                 {% endfor %}
-            </div>
-        </footer>
-    </div>
+            </table>
+            <br>
+        </div>
+    </footer>
+</div>

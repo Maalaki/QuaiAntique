@@ -15,10 +15,4 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig',
         );
     }
-
-    public function hours(HoursRepository $hoursRepository): array
-    {
-        $hours = $hoursRepository ->findBy([], ['id' => 'asc']);
-        return $hours;
-    }
 }

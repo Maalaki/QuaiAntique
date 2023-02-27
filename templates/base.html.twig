@@ -76,52 +76,8 @@
 {% endblock %}
 
 <!-- Footer with opening hours -->
-
-<div class="container-fluid bg-dark text-light">
-    <footer>
-
-        <div class="opening-hours mx-auto">
-            <h3 class="ohTitle text-center">Nos horaires d'ouverture</h3>
-            <table class="ohTableStructure">
-                <tr class="monday ohTable">
-                    <td><span>Lundi</span></td>
-                    <td>Fermé</td>
-                </tr>
-                <tr class="tuesday ohTable">
-                    <td><span>Mardi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class="wednesday ohTable">
-                    <td><span>Mercredi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class="thursday ohTable">
-                    <td><span>Jeudi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class="friday ohTable">
-                    <td><span>Vendredi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class="saturday ohTable">
-                    <td><span>Samedi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class="sunday ohTable">
-                    <td><span>Dimanche</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>Fermé</td>
-                </tr>
-            </table>
-            <br/>
-        </div>
-    </footer>
+<div>
+    {{ render(path('hours')) }}
 </div>
-
 </body>
 </html>

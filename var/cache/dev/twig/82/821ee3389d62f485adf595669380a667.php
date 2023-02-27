@@ -143,53 +143,12 @@ class __TwigTemplate_6c5f67fa7f73e63a493ff540e291f917 extends Template
         // line 77
         echo "
 <!-- Footer with opening hours -->
-
-<div class=\"container-fluid bg-dark text-light\">
-    <footer>
-
-        <div class=\"opening-hours mx-auto\">
-            <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
-            <table class=\"ohTableStructure\">
-                <tr class=\"monday ohTable\">
-                    <td><span>Lundi</span></td>
-                    <td>Fermé</td>
-                </tr>
-                <tr class=\"tuesday ohTable\">
-                    <td><span>Mardi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"wednesday ohTable\">
-                    <td><span>Mercredi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"thursday ohTable\">
-                    <td><span>Jeudi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"friday ohTable\">
-                    <td><span>Vendredi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"saturday ohTable\">
-                    <td><span>Samedi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"sunday ohTable\">
-                    <td><span>Dimanche</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>Fermé</td>
-                </tr>
-            </table>
-            <br/>
-        </div>
-    </footer>
+<div>
+    ";
+        // line 80
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hours"));
+        echo "
 </div>
-
 </body>
 </html>
 ";
@@ -296,7 +255,7 @@ class __TwigTemplate_6c5f67fa7f73e63a493ff540e291f917 extends Template
 
     public function getDebugInfo()
     {
-        return array (  270 => 75,  257 => 16,  247 => 15,  234 => 12,  224 => 11,  205 => 5,  144 => 77,  142 => 75,  133 => 68,  127 => 64,  124 => 63,  118 => 59,  116 => 58,  109 => 55,  107 => 54,  69 => 18,  67 => 15,  64 => 14,  61 => 11,  53 => 5,  47 => 1,);
+        return array (  229 => 75,  216 => 16,  206 => 15,  193 => 12,  183 => 11,  164 => 5,  149 => 80,  144 => 77,  142 => 75,  133 => 68,  127 => 64,  124 => 63,  118 => 59,  116 => 58,  109 => 55,  107 => 54,  69 => 18,  67 => 15,  64 => 14,  61 => 11,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -379,53 +338,9 @@ class __TwigTemplate_6c5f67fa7f73e63a493ff540e291f917 extends Template
 {% endblock %}
 
 <!-- Footer with opening hours -->
-
-<div class=\"container-fluid bg-dark text-light\">
-    <footer>
-
-        <div class=\"opening-hours mx-auto\">
-            <h3 class=\"ohTitle text-center\">Nos horaires d'ouverture</h3>
-            <table class=\"ohTableStructure\">
-                <tr class=\"monday ohTable\">
-                    <td><span>Lundi</span></td>
-                    <td>Fermé</td>
-                </tr>
-                <tr class=\"tuesday ohTable\">
-                    <td><span>Mardi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"wednesday ohTable\">
-                    <td><span>Mercredi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"thursday ohTable\">
-                    <td><span>Jeudi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"friday ohTable\">
-                    <td><span>Vendredi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"saturday ohTable\">
-                    <td><span>Samedi</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>19:00 - 22:00</td>
-                </tr>
-                <tr class=\"sunday ohTable\">
-                    <td><span>Dimanche</span></td>
-                    <td>12:00 - 14:00</td>
-                    <td>Fermé</td>
-                </tr>
-            </table>
-            <br/>
-        </div>
-    </footer>
+<div>
+    {{ render(path('hours')) }}
 </div>
-
 </body>
 </html>
 ", "base.html.twig", "C:\\xampp\\apps\\resto\\templates\\base.html.twig");
