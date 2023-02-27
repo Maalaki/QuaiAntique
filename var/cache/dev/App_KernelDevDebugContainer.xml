@@ -363,14 +363,6 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
-    <service id="App\Controller\Admin\BaseCrudController" class="HoursCrudController" public="true" autowire="true" autoconfigure="true">
-      <tag name="ea.crud_controller"/>
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.5eP_qL9.App\Controller\Admin\BaseCrudController"/>
-      </call>
-    </service>
     <service id="App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" public="true" autowire="true" autoconfigure="true">
       <tag name="ea.crud_controller"/>
       <tag name="controller.service_arguments"/>
@@ -393,6 +385,14 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.5eP_qL9.App\Controller\Admin\FormulaCrudController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\HoursCrudController" class="App\Controller\Admin\HoursCrudController" public="true" autowire="true" autoconfigure="true">
+      <tag name="ea.crud_controller"/>
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.5eP_qL9.App\Controller\Admin\HoursCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\MenuCrudController" class="App\Controller\Admin\MenuCrudController" public="true" autowire="true" autoconfigure="true">
@@ -6885,10 +6885,6 @@
       <tag name="assets.package" package="easyadmin.assets.package"/>
       <argument type="service" id="request_stack"/>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" abstract="true"/>
-    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Admin\BaseCrudController" class="HoursCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\BookingCrudController" class="App\Controller\Admin\BookingCrudController" autowire="true" abstract="true"/>
@@ -6901,6 +6897,10 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\FormulaCrudController" class="App\Controller\Admin\FormulaCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\FormulaCrudController" class="App\Controller\Admin\FormulaCrudController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\FormulaCrudController" class="App\Controller\Admin\FormulaCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\HoursCrudController" class="App\Controller\Admin\HoursCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\HoursCrudController" class="App\Controller\Admin\HoursCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\HoursCrudController" class="App\Controller\Admin\HoursCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\HoursCrudController" class="App\Controller\Admin\HoursCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\MenuCrudController" class="App\Controller\Admin\MenuCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\MenuCrudController" class="App\Controller\Admin\MenuCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\MenuCrudController" class="App\Controller\Admin\MenuCrudController" autowire="true" abstract="true"/>
@@ -7455,30 +7455,9 @@
         <argument key="manager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.wchid6_" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.fWLWjTV" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\Admin\BaseCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
-        <argument key="App\Controller\Admin\BaseCrudController::configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
-        <argument key="App\Controller\Admin\BaseCrudController::configureAssets" type="service_closure" id=".service_locator.wvbCcwL"/>
-        <argument key="App\Controller\Admin\BaseCrudController::configureCrud" type="service_closure" id=".service_locator.Nb584vp"/>
-        <argument key="App\Controller\Admin\BaseCrudController::configureFilters" type="service_closure" id=".service_locator.kud45L1"/>
-        <argument key="App\Controller\Admin\BaseCrudController::configureResponseParameters" type="service_closure" id=".service_locator.vMUOjiq"/>
-        <argument key="App\Controller\Admin\BaseCrudController::createEditForm" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController::createEditFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController::createIndexQueryBuilder" type="service_closure" id=".service_locator.yR6jqeD"/>
-        <argument key="App\Controller\Admin\BaseCrudController::createNewForm" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController::delete" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::deleteEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\Admin\BaseCrudController::detail" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::edit" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::index" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::new" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\Admin\BaseCrudController::renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController::updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\BookingCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\BookingCrudController::batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
         <argument key="App\Controller\Admin\BookingCrudController::configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
@@ -7522,6 +7501,27 @@
         <argument key="App\Controller\Admin\FormulaCrudController::persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\FormulaCrudController::renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\FormulaCrudController::updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Admin\HoursCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
+        <argument key="App\Controller\Admin\HoursCrudController::configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
+        <argument key="App\Controller\Admin\HoursCrudController::configureAssets" type="service_closure" id=".service_locator.wvbCcwL"/>
+        <argument key="App\Controller\Admin\HoursCrudController::configureCrud" type="service_closure" id=".service_locator.Nb584vp"/>
+        <argument key="App\Controller\Admin\HoursCrudController::configureFilters" type="service_closure" id=".service_locator.kud45L1"/>
+        <argument key="App\Controller\Admin\HoursCrudController::configureResponseParameters" type="service_closure" id=".service_locator.vMUOjiq"/>
+        <argument key="App\Controller\Admin\HoursCrudController::createEditForm" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController::createEditFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController::createIndexQueryBuilder" type="service_closure" id=".service_locator.yR6jqeD"/>
+        <argument key="App\Controller\Admin\HoursCrudController::createNewForm" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController::delete" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::deleteEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Admin\HoursCrudController::detail" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::edit" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::index" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::new" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Admin\HoursCrudController::renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController::updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\MenuCrudController::autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\MenuCrudController::batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
         <argument key="App\Controller\Admin\MenuCrudController::configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
@@ -7573,27 +7573,6 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
-        <argument key="App\Controller\Admin\BaseCrudController:autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
-        <argument key="App\Controller\Admin\BaseCrudController:configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
-        <argument key="App\Controller\Admin\BaseCrudController:configureAssets" type="service_closure" id=".service_locator.wvbCcwL"/>
-        <argument key="App\Controller\Admin\BaseCrudController:configureCrud" type="service_closure" id=".service_locator.Nb584vp"/>
-        <argument key="App\Controller\Admin\BaseCrudController:configureFilters" type="service_closure" id=".service_locator.kud45L1"/>
-        <argument key="App\Controller\Admin\BaseCrudController:configureResponseParameters" type="service_closure" id=".service_locator.vMUOjiq"/>
-        <argument key="App\Controller\Admin\BaseCrudController:createEditForm" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController:createEditFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController:createIndexQueryBuilder" type="service_closure" id=".service_locator.yR6jqeD"/>
-        <argument key="App\Controller\Admin\BaseCrudController:createNewForm" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
-        <argument key="App\Controller\Admin\BaseCrudController:delete" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:deleteEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\Admin\BaseCrudController:detail" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:edit" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:index" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:new" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
-        <argument key="App\Controller\Admin\BaseCrudController:renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
-        <argument key="App\Controller\Admin\BaseCrudController:updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\BookingCrudController:autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\BookingCrudController:batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
         <argument key="App\Controller\Admin\BookingCrudController:configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
@@ -7637,6 +7616,27 @@
         <argument key="App\Controller\Admin\FormulaCrudController:persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\FormulaCrudController:renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\FormulaCrudController:updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Admin\HoursCrudController:autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
+        <argument key="App\Controller\Admin\HoursCrudController:configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
+        <argument key="App\Controller\Admin\HoursCrudController:configureAssets" type="service_closure" id=".service_locator.wvbCcwL"/>
+        <argument key="App\Controller\Admin\HoursCrudController:configureCrud" type="service_closure" id=".service_locator.Nb584vp"/>
+        <argument key="App\Controller\Admin\HoursCrudController:configureFilters" type="service_closure" id=".service_locator.kud45L1"/>
+        <argument key="App\Controller\Admin\HoursCrudController:configureResponseParameters" type="service_closure" id=".service_locator.vMUOjiq"/>
+        <argument key="App\Controller\Admin\HoursCrudController:createEditForm" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController:createEditFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController:createIndexQueryBuilder" type="service_closure" id=".service_locator.yR6jqeD"/>
+        <argument key="App\Controller\Admin\HoursCrudController:createNewForm" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.jG5xrFj"/>
+        <argument key="App\Controller\Admin\HoursCrudController:delete" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:deleteEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Admin\HoursCrudController:detail" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:edit" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:index" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:new" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:persistEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Admin\HoursCrudController:renderFilters" type="service_closure" id=".service_locator.t9B7cZ4"/>
+        <argument key="App\Controller\Admin\HoursCrudController:updateEntity" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\MenuCrudController:autocomplete" type="service_closure" id=".service_locator.t9B7cZ4"/>
         <argument key="App\Controller\Admin\MenuCrudController:batchDelete" type="service_closure" id=".service_locator.jwjltq_"/>
         <argument key="App\Controller\Admin\MenuCrudController:configureActions" type="service_closure" id=".service_locator.UrOEf8r"/>
@@ -8234,9 +8234,9 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry" class="EasyCorp\Bundle\EasyAdminBundle\Registry\CrudControllerRegistry">
       <argument>%env(APP_SECRET)%</argument>
       <argument type="collection">
-        <argument>HoursCrudController</argument>
         <argument>App\Controller\Admin\BookingCrudController</argument>
         <argument>App\Controller\Admin\FormulaCrudController</argument>
+        <argument>App\Controller\Admin\HoursCrudController</argument>
         <argument>App\Controller\Admin\MenuCrudController</argument>
         <argument>App\Controller\Admin\UserCrudController</argument>
       </argument>
@@ -8285,12 +8285,6 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.5eP_qL9.App\Controller\Admin\BaseCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\Admin\BaseCrudController"/>
-      <argument>HoursCrudController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.5eP_qL9" method="withContext"/>
-    </service>
     <service id=".service_locator.5eP_qL9.App\Controller\Admin\BookingCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\BookingCrudController"/>
       <argument>App\Controller\Admin\BookingCrudController</argument>
@@ -8322,6 +8316,12 @@
     <service id=".service_locator.5eP_qL9.App\Controller\Admin\FormulaCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\FormulaCrudController"/>
       <argument>App\Controller\Admin\FormulaCrudController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.5eP_qL9" method="withContext"/>
+    </service>
+    <service id=".service_locator.5eP_qL9.App\Controller\Admin\HoursCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\HoursCrudController"/>
+      <argument>App\Controller\Admin\HoursCrudController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.5eP_qL9" method="withContext"/>
     </service>
@@ -8683,12 +8683,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.wchid6_"/>
+      <argument type="service" id=".service_locator.fWLWjTV"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.wchid6_"/>
+      <argument type="service" id=".service_locator.fWLWjTV"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9705,7 +9705,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcherInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.wchid6_"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.fWLWjTV"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9731,7 +9731,7 @@
     <service id=".service_locator.twrFs.m" alias=".service_locator.jwjltq_"/>
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
-    <service id=".service_locator.1RWaIs1" alias=".service_locator.wchid6_"/>
+    <service id=".service_locator.Whqd2ru" alias=".service_locator.fWLWjTV"/>
     <service id=".service_locator.9XMoc9I" alias=".service_locator.kzegaci"/>
     <service id=".service_locator.UUkSgKW" alias=".service_locator.jwa3M9B"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
