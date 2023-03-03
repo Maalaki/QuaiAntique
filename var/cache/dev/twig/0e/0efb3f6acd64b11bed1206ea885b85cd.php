@@ -127,16 +127,22 @@ class __TwigTemplate_611c09cb890857093eb38376391cab1e extends Template
         echo "\" method=\"post\" name=\"login\">
             <div class=\"form-group\">
                 <label for=\"username\" class=\"form-label mt-4\">Adresse email</label>
-                <input type=\"email\" class=\"form-control\" id=\"username\" name=\"_username\" placeholder=\"exemple@lequaiantique.fr\" value=\"";
-        // line 24
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 24, $this->source); })()), "html", null, true);
+                <input type=\"email\" class=\"form-control\" id=\"username\" name=\"_username\"
+                       placeholder=\"exemple@lequaiantique.fr\" value=\"";
+        // line 25
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 25, $this->source); })()), "html", null, true);
         echo "\">
             </div>
             <div class=\"form-group\">
                 <label for=\"password\" class=\"form-label mt-4\">Mot de passe</label>
                 <input type=\"password\" class=\"form-control\" id=\"password\" name=\"_password\" placeholder=\"********\">
             </div>
-
+            <br>
+            <div class=\"checkbox mb-3\">
+                <label>
+                    <input type=\"checkbox\" name=\"_remember_me\"> Remember me
+                </label>
+            </div>
             <button type=\"submit\" class=\"btn btn-dark mt-4 mb-5\">
                 Se connecter
             </button>
@@ -167,7 +173,7 @@ class __TwigTemplate_611c09cb890857093eb38376391cab1e extends Template
 
     public function getDebugInfo()
     {
-        return array (  132 => 24,  126 => 21,  123 => 20,  117 => 17,  114 => 16,  112 => 15,  109 => 14,  100 => 11,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  133 => 25,  126 => 21,  123 => 20,  117 => 17,  114 => 16,  112 => 15,  109 => 14,  100 => 11,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -195,13 +201,19 @@ class __TwigTemplate_611c09cb890857093eb38376391cab1e extends Template
         <form action=\"{{ path('security.login') }}\" method=\"post\" name=\"login\">
             <div class=\"form-group\">
                 <label for=\"username\" class=\"form-label mt-4\">Adresse email</label>
-                <input type=\"email\" class=\"form-control\" id=\"username\" name=\"_username\" placeholder=\"exemple@lequaiantique.fr\" value=\"{{ last_username }}\">
+                <input type=\"email\" class=\"form-control\" id=\"username\" name=\"_username\"
+                       placeholder=\"exemple@lequaiantique.fr\" value=\"{{ last_username }}\">
             </div>
             <div class=\"form-group\">
                 <label for=\"password\" class=\"form-label mt-4\">Mot de passe</label>
                 <input type=\"password\" class=\"form-control\" id=\"password\" name=\"_password\" placeholder=\"********\">
             </div>
-
+            <br>
+            <div class=\"checkbox mb-3\">
+                <label>
+                    <input type=\"checkbox\" name=\"_remember_me\"> Remember me
+                </label>
+            </div>
             <button type=\"submit\" class=\"btn btn-dark mt-4 mb-5\">
                 Se connecter
             </button>
