@@ -142,3 +142,7 @@ d28f49,127.0.0.1,POST,http://resto.localhost/connexion,1677854274,,302
 ad9e86,127.0.0.1,GET,http://resto.localhost/,1677854279,,200
 88ab79,127.0.0.1,GET,http://resto.localhost/hours,1677854281,9dfe61,200
 9dfe61,127.0.0.1,GET,http://resto.localhost/connexion,1677854281,,200
+5e29b0,127.0.0.1,GET,http://resto.localhost/,1677925649,5216bd,500
+5216bd,127.0.0.1,GET,http://resto.localhost/,1677925649,,500
+010312,127.0.0.1,GET,http://resto.localhost/,1677925727,94e735,500
+94e735,127.0.0.1,GET,http://resto.localhost/,1677925727,,500
