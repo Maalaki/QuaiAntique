@@ -112,7 +112,7 @@
     <parameter key="kernel.http_method_override">false</parameter>
     <parameter key="kernel.trust_x_sendfile_type_header">false</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="kernel.enabled_locales" type="collection"/>
     <parameter key="kernel.error_controller">error_controller</parameter>
     <parameter key="debug.file_link_format">%env(default::SYMFONY_IDE)%</parameter>
@@ -503,7 +503,7 @@
       <tag name="container.hot_path"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="request_stack"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router.default" on-invalid="ignore"/>
       <argument>false</argument>
       <argument type="collection"/>
@@ -746,7 +746,7 @@
     </service>
     <service id="slugger" class="Symfony\Component\String\Slugger\AsciiSlugger">
       <tag name="kernel.locale_aware"/>
-      <argument>en</argument>
+      <argument>fr</argument>
     </service>
     <service id="container.getenv" class="Closure">
       <tag name="routing.expression_language_function" function="env"/>
@@ -1254,7 +1254,7 @@
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument>C:\xampp\apps\resto/translations</argument>
       <argument>C:\xampp\apps\resto/templates</argument>
       <argument type="collection">
@@ -1291,7 +1291,7 @@
       <argument type="service" id="translation.provider_collection"/>
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection"/>
       <argument type="collection"/>
       <call method="setName">
@@ -1358,6 +1358,7 @@
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
+        <argument>Symfony\Component\Form\Extension\HtmlSanitizer\Type\TextTypeHtmlSanitizerExtension</argument>
         <argument>Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension</argument>
@@ -1778,7 +1779,7 @@
       <tag name="kernel.locale_aware"/>
       <argument type="service" id=".service_locator.yY.p4P7"/>
       <argument type="service" id="translator.formatter.default"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection">
         <argument key="translation.loader.php" type="collection">
           <argument>php</argument>
@@ -2411,7 +2412,7 @@
     <service id="translation.locale_switcher" class="Symfony\Component\Translation\LocaleSwitcher">
       <tag name="kernel.reset" method="reset"/>
       <tag name="kernel.locale_aware"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="tagged_iterator" tag="kernel.locale_aware" exclude="translation.locale_switcher"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
     </service>
@@ -3200,7 +3201,7 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="parameter_bag" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
@@ -3561,6 +3562,9 @@
           <argument type="service" id="form.type_extension.form.password_hasher"/>
           <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Form\Extension\EaCrudFormTypeExtension"/>
         </argument>
+        <argument key="Symfony\Component\Form\Extension\Core\Type\TextType" type="iterator">
+          <argument type="service" id="form.type_extension.form.html_sanitizer"/>
+        </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="iterator">
           <argument type="service" id="form.type_extension.repeated.validator"/>
         </argument>
@@ -3612,6 +3616,10 @@
     <service id="form.type_extension.form.transformation_failure_handling" class="Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension">
       <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
       <argument type="service" id="translator.data_collector" on-invalid="ignore"/>
+    </service>
+    <service id="form.type_extension.form.html_sanitizer" class="Symfony\Component\Form\Extension\HtmlSanitizer\Type\TextTypeHtmlSanitizerExtension">
+      <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TextType"/>
+      <argument type="service" id=".service_locator.VZmeTnN"/>
     </service>
     <service id="form.type_extension.form.http_foundation" class="Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension">
       <tag name="form.type_extension"/>
@@ -4270,6 +4278,13 @@
     </service>
     <service id="serializer.data_collector" class="Symfony\Component\Serializer\DataCollector\SerializerDataCollector">
       <tag name="data_collector" template="@WebProfiler/Collector/serializer.html.twig" id="serializer"/>
+    </service>
+    <service id="html_sanitizer.config.default" class="Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig">
+      <call method="allowSafeElements" returns-clone="true"/>
+    </service>
+    <service id="html_sanitizer.sanitizer.default" class="Symfony\Component\HtmlSanitizer\HtmlSanitizer">
+      <tag name="html_sanitizer" sanitizer="default"/>
+      <argument type="service" id="html_sanitizer.config.default"/>
     </service>
     <service id="mime_types" class="Symfony\Component\Mime\MimeTypes">
       <call method="setDefault">
@@ -5057,6 +5072,9 @@
         <argument type="service" id="twig.extension.expression"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="twig.extension.htmlsanitizer"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.httpkernel"/>
       </call>
       <call method="addExtension">
@@ -5257,7 +5275,8 @@
       <tag name="twig.extension"/>
     </service>
     <service id="twig.extension.htmlsanitizer" class="Symfony\Bridge\Twig\Extension\HtmlSanitizerExtension">
-      <argument type="service" id=".service_locator.Xbsa8iG"/>
+      <tag name="twig.extension"/>
+      <argument type="service" id=".service_locator.VZmeTnN"/>
     </service>
     <service id="twig.extension.httpkernel" class="Symfony\Bridge\Twig\Extension\HttpKernelExtension">
       <tag name="twig.extension"/>
@@ -8689,6 +8708,12 @@
         <argument key="session_factory" type="service_closure" id="session.factory" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.VZmeTnN" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="default" type="service_closure" id="html_sanitizer.sanitizer.default"/>
+      </argument>
+    </service>
     <service id=".service_locator.0TACwl3" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -9856,6 +9881,8 @@
     <service id="messenger.default_serializer" alias="messenger.transport.native_php_serializer"/>
     <service id="messenger.failure_transports.default" alias="messenger.transport.failed"/>
     <service id="Symfony\Component\Notifier\NotifierInterface" alias="notifier"/>
+    <service id="html_sanitizer" alias="html_sanitizer.sanitizer.default"/>
+    <service id="Symfony\Component\HtmlSanitizer\HtmlSanitizerInterface" alias="html_sanitizer.sanitizer.default"/>
     <service id="Symfony\Component\Mime\MimeTypesInterface" alias="mime_types"/>
     <service id="Symfony\Component\Mime\MimeTypeGuesserInterface" alias="mime_types"/>
     <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection"/>

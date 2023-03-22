@@ -940,23 +940,12 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
     }
 
     /**
-     * @template TValue
-     * @param TValue $value
      * HtmlSanitizer configuration
-     * @default {"enabled":false,"sanitizers":[]}
-     * @return \Symfony\Config\Framework\HtmlSanitizerConfig|$this
-     * @psalm-return (TValue is array ? \Symfony\Config\Framework\HtmlSanitizerConfig : static)
-     */
-    public function htmlSanitizer(array $value = []): \Symfony\Config\Framework\HtmlSanitizerConfig|static
+     * @default {"enabled":true,"sanitizers":[]}
+    */
+    public function htmlSanitizer(array $value = []): \Symfony\Config\Framework\HtmlSanitizerConfig
     {
-        if (!\is_array($value)) {
-            $this->_usedProperties['htmlSanitizer'] = true;
-            $this->htmlSanitizer = $value;
-
-            return $this;
-        }
-
-        if (!$this->htmlSanitizer instanceof \Symfony\Config\Framework\HtmlSanitizerConfig) {
+        if (null === $this->htmlSanitizer) {
             $this->_usedProperties['htmlSanitizer'] = true;
             $this->htmlSanitizer = new \Symfony\Config\Framework\HtmlSanitizerConfig($value);
         } elseif (0 < \func_num_args()) {
@@ -1251,7 +1240,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
 
         if (array_key_exists('html_sanitizer', $value)) {
             $this->_usedProperties['htmlSanitizer'] = true;
-            $this->htmlSanitizer = \is_array($value['html_sanitizer']) ? new \Symfony\Config\Framework\HtmlSanitizerConfig($value['html_sanitizer']) : $value['html_sanitizer'];
+            $this->htmlSanitizer = new \Symfony\Config\Framework\HtmlSanitizerConfig($value['html_sanitizer']);
             unset($value['html_sanitizer']);
         }
 
@@ -1402,7 +1391,7 @@ class FrameworkConfig implements \Symfony\Component\Config\Builder\ConfigBuilder
             $output['uid'] = $this->uid->toArray();
         }
         if (isset($this->_usedProperties['htmlSanitizer'])) {
-            $output['html_sanitizer'] = $this->htmlSanitizer instanceof \Symfony\Config\Framework\HtmlSanitizerConfig ? $this->htmlSanitizer->toArray() : $this->htmlSanitizer;
+            $output['html_sanitizer'] = $this->htmlSanitizer->toArray();
         }
 
         return $output;
