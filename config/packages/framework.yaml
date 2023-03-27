@@ -1,9 +1,6 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
 
-    headers:
-        strict_transport_security: 'max-age=31536000; includeSubDomains; preload'
-
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
     http_method_override: false
