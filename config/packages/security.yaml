@@ -39,6 +39,11 @@ security:
          - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
+    http_strict_transport_security:
+        max_age: 31536000
+        include_sub_domains: true
+        preload: true
+
 when@test:
     security:
         password_hashers:

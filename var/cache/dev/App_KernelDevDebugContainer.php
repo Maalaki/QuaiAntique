@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerPxWfWev\App_KernelDevDebugContainer([
     'container.build_hash' => 'PxWfWev',
-    'container.build_id' => '8a8c382b',
-    'container.build_time' => 1679909096,
+    'container.build_id' => '5c1fbdaa',
+    'container.build_time' => 1679918645,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerPxWfWev');
