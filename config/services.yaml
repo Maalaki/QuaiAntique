@@ -29,3 +29,16 @@ services:
     App\EventListener\StrictTransportSecurityListener:
         tags:
             - { name: kernel.event_subscriber }
+
+    App\Validator\Constraints\ClosedDaysValidator:
+        tags:
+            - { name: validator.constraint_validator, alias: closed_days_validator }
+
+    App\Validator\Constraints\MaxPeoplePerTimeValidator:
+        arguments:
+            - '@App\Repository\BookingRepository'
+        tags:
+            - name: validator.constraint_validator
+              alias: MaxPeoplePerTime
+
+

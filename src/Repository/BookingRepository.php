@@ -39,6 +39,23 @@ class BookingRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByDateAndTime($date, $time)
+    {
+        $startDateTime = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
+        $endDateTime = clone $startDateTime;
+        $endDateTime->modify('+1 hour');
+
+        return $this->createQueryBuilder('b')
+            ->where('b.date = :date')
+            ->andWhere('b.arrivalTime >= :startDateTime')
+            ->andWhere('b.arrivalTime < :endDateTime')
+            ->setParameter('date', $date)
+            ->setParameter('startDateTime', $startDateTime)
+            ->setParameter('endDateTime', $endDateTime)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Booking[] Returns an array of Booking objects
 //     */

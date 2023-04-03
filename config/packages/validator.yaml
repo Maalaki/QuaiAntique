@@ -1,11 +1,21 @@
 framework:
     validation:
         email_validation_mode: html5
+        enable_annotations: false
+        auto_mapping: true
+        mapping:
+            paths:
+                - '%kernel.project_dir%/src/Entity' # emplacement de vos entités
 
         # Enables validator auto-mapping support.
         # For instance, basic validation constraints will be inferred from Doctrine's metadata.
         #auto_mapping:
         #    App\Entity\: []
+
+
+#App\Entity\Booking:
+ #   constraints:
+  #      - App\Validator\Constraints\MaxBooking: ~
 
 when@test:
     framework:

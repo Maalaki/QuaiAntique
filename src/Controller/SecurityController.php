@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\User;
+use App\Form\BookingType;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,5 +54,26 @@ class SecurityController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    #[Route('/bookingform', 'security.booking', methods: ['GET', 'POST'])]
+    public function booking(Request $request, EntityManagerInterface $manager): Response
+    {
+        $booking = new Booking();
 
+        $form = $this->createForm(BookingType::class, $booking);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $booking = $form->getData();
+
+            $manager->persist($booking);
+            $manager->flush();
+
+            return $this->redirectToRoute('booking');
+
+        }
+
+        return $this->render('home/security/bookingform.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 }

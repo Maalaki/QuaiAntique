@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\BookingRepository;
+use DateTimeInterface;
+use App\Validator\Constraints\MaxPeoplePerTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BookingRepository::class)]
 class Booking
@@ -15,21 +18,33 @@ class Booking
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank]
     private ?int $customersNb = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[Assert\NotBlank]
+    private ?DateTimeInterface $date = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $arrivalTime = null;
+    #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank]
+    #[MaxPeoplePerTime]
+    private ?DateTimeInterface $arrivalTime = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $allergy = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Email(
+        message: 'L\' adresse {{ value }} n\'est pas une adresse e-mail valide.',
+    )]
+
+
+
     private ?string $email = null;
 
     public function getId(): ?int
@@ -49,24 +64,24 @@ class Booking
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(DateTimeInterface $date): self
     {
         $this->date = $date;
 
         return $this;
     }
 
-    public function getArrivalTime(): ?\DateTimeInterface
+    public function getArrivalTime(): ?DateTimeInterface
     {
         return $this->arrivalTime;
     }
 
-    public function setArrivalTime(\DateTimeInterface $arrivalTime): self
+    public function setArrivalTime(DateTimeInterface $arrivalTime): self
     {
         $this->arrivalTime = $arrivalTime;
 
