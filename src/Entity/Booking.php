@@ -25,7 +25,7 @@ class Booking
     #[Assert\NotBlank]
     private ?DateTimeInterface $date = null;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
     #[Assert\NotBlank]
     #[MaxPeoplePerTime]
     private ?DateTimeInterface $arrivalTime = null;
