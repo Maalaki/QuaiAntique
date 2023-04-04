@@ -22,11 +22,11 @@ class Booking
     #[MaxPeoplePerTime]
     private ?int $customersNb = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     #[Assert\NotBlank]
     private ?DateTimeInterface $date = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
     #[Assert\NotBlank]
     private ?DateTimeInterface $arrivalTime = null;
 
