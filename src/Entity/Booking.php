@@ -17,17 +17,17 @@ class Booking
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::INTEGER)]
     #[Assert\NotBlank]
+    #[MaxPeoplePerTime]
     private ?int $customersNb = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank]
     private ?DateTimeInterface $date = null;
 
-    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     #[Assert\NotBlank]
-    #[MaxPeoplePerTime]
     private ?DateTimeInterface $arrivalTime = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -42,8 +42,6 @@ class Booking
     #[Assert\Email(
         message: 'L\' adresse {{ value }} n\'est pas une adresse e-mail valide.',
     )]
-
-
 
     private ?string $email = null;
 

@@ -47,7 +47,7 @@ class BookingType extends AbstractType
             ])
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
-                'input' => 'datetime',
+                'input' => 'datetime_immutable',
                 'attr' => [
                     'class' => 'form-control'
                 ],
@@ -62,7 +62,7 @@ class BookingType extends AbstractType
             ])
             ->add('arrivalTime', TimeType::class, [
                 'widget' => 'choice',
-                'input' => 'datetime',
+                'input' => 'datetime_immutable',
                 'hours' => [12, 13, 19, 20],
                 'minutes' => [00, 15, 30, 45],
                 'attr' => [

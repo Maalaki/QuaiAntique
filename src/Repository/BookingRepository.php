@@ -3,12 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Booking;
+use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Booking>
- *
  * @method Booking|null find($id, $lockMode = null, $lockVersion = null)
  * @method Booking|null findOneBy(array $criteria, array $orderBy = null)
  * @method Booking[]    findAll()
@@ -39,19 +39,15 @@ class BookingRepository extends ServiceEntityRepository
         }
     }
 
-    public function findByDateAndTime($date, $time)
+    public function findByDateAndTime(DateTimeInterface $date, DateTimeInterface $time)
     {
-        $startDateTime = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
-        $endDateTime = clone $startDateTime;
-        $endDateTime->modify('+1 hour');
+        $startDateTime = $date->setTime($time->format('H'), $time->format('i'), $time->format('s'));
 
         return $this->createQueryBuilder('b')
             ->where('b.date = :date')
-            ->andWhere('b.arrivalTime >= :startDateTime')
-            ->andWhere('b.arrivalTime < :endDateTime')
+            ->andWhere('b.arrivalTime = :time')
             ->setParameter('date', $date)
-            ->setParameter('startDateTime', $startDateTime)
-            ->setParameter('endDateTime', $endDateTime)
+            ->setParameter('time', $startDateTime)
             ->getQuery()
             ->getResult();
     }

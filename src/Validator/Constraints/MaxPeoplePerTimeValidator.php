@@ -24,6 +24,9 @@ class MaxPeoplePerTimeValidator extends ConstraintValidator
         $bookingDate = $value->getDate();
         $arrivalTime = $value->getArrivalTime();
         $customersNb = $value->getCustomersNb();
+        if ($customersNb === null) {
+            return;
+        }
         $bookings = $this->bookingRepository->findByDateAndTime($bookingDate, $arrivalTime);
         $bookedCustomersNb = array_sum(array_column($bookings, 'customersNb'));
         $availableSeats = 10 - $bookedCustomersNb;

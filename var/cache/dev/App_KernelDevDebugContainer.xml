@@ -504,7 +504,7 @@
     </service>
     <service id="App\Validator\Constraints\MaxPeoplePerTime" class="App\Validator\Constraints\MaxPeoplePerTime" autowire="true" autoconfigure="true"/>
     <service id="App\Validator\Constraints\MaxPeoplePerTimeValidator" class="App\Validator\Constraints\MaxPeoplePerTimeValidator" autowire="true" autoconfigure="true">
-      <tag name="validator.constraint_validator" alias="MaxPeoplePerTime"/>
+      <tag name="validator.constraint_validator" alias="max_people_per_time_validator"/>
       <tag name="validator.constraint_validator"/>
       <argument type="service" id="App\Repository\BookingRepository"/>
     </service>
@@ -3729,7 +3729,7 @@
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory">
-      <argument type="service" id=".service_locator.ASfIKLv"/>
+      <argument type="service" id=".service_locator.BNzd4Ew"/>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
@@ -4383,7 +4383,12 @@
       <argument type="service" id="doctrine"/>
       <argument type="service" id="profiler"/>
     </service>
+    <service id="doctrine.dbal.default_schema_manager_factory" class="Doctrine\DBAL\Schema\DefaultSchemaManagerFactory"/>
+    <service id="doctrine.dbal.legacy_schema_manager_factory" class="Doctrine\DBAL\Schema\LegacySchemaManagerFactory"/>
     <service id="doctrine.dbal.default_connection.configuration" class="Doctrine\DBAL\Configuration">
+      <call method="setSchemaManagerFactory">
+        <argument type="service" id="doctrine.dbal.legacy_schema_manager_factory"/>
+      </call>
       <call method="setMiddlewares">
         <argument type="collection">
           <argument type="service">
@@ -7931,12 +7936,11 @@
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
     </service>
-    <service id=".service_locator.ASfIKLv" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.BNzd4Ew" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Validator\Constraints\ClosedDaysValidator" type="service_closure" id="App\Validator\Constraints\ClosedDaysValidator"/>
         <argument key="App\Validator\Constraints\MaxPeoplePerTimeValidator" type="service_closure" id="App\Validator\Constraints\MaxPeoplePerTimeValidator"/>
-        <argument key="MaxPeoplePerTime" type="service_closure" id="App\Validator\Constraints\MaxPeoplePerTimeValidator"/>
         <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator" type="service_closure" id="doctrine.orm.validator.unique"/>
         <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" type="service_closure" id="security.validator.user_password"/>
         <argument key="Symfony\Component\Validator\Constraints\EmailValidator" type="service_closure" id="validator.email"/>
@@ -7945,6 +7949,7 @@
         <argument key="Symfony\Component\Validator\Constraints\WhenValidator" type="service_closure" id="validator.when"/>
         <argument key="closed_days_validator" type="service_closure" id="App\Validator\Constraints\ClosedDaysValidator"/>
         <argument key="doctrine.orm.validator.unique" type="service_closure" id="doctrine.orm.validator.unique"/>
+        <argument key="max_people_per_time_validator" type="service_closure" id="App\Validator\Constraints\MaxPeoplePerTimeValidator"/>
         <argument key="security.validator.user_password" type="service_closure" id="security.validator.user_password"/>
         <argument key="validator.expression" type="service_closure" id="validator.expression"/>
       </argument>
@@ -9823,6 +9828,7 @@
         <argument key="Symfony\Component\Form\FormRenderer" type="service_closure" id="twig.form.renderer"/>
       </argument>
     </service>
+    <service id="Doctrine\Persistence\ObjectManager" alias="doctrine.orm.default_entity_manager"/>
     <service id="App\Kernel" alias="kernel" public="true"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface" alias="parameter_bag"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface" alias="parameter_bag"/>
@@ -9923,7 +9929,6 @@
     <service id="Symfony\Component\HtmlSanitizer\HtmlSanitizerInterface" alias="html_sanitizer.sanitizer.default"/>
     <service id="Symfony\Component\Mime\MimeTypesInterface" alias="mime_types"/>
     <service id="Symfony\Component\Mime\MimeTypeGuesserInterface" alias="mime_types"/>
-    <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\DBAL\Connection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\Persistence\ManagerRegistry" alias="doctrine"/>
     <service id="Doctrine\Common\Persistence\ManagerRegistry" alias="doctrine"/>
@@ -10003,7 +10008,7 @@
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
     <service id=".service_locator.ngimmSz" alias=".service_locator.vEjOQNl"/>
-    <service id=".service_locator.CBtnWfn" alias=".service_locator.ASfIKLv"/>
+    <service id=".service_locator.XjkGu.n" alias=".service_locator.BNzd4Ew"/>
     <service id=".service_locator.saRbI3G" alias=".service_locator.Xy_Tktl"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>

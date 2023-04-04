@@ -35,10 +35,11 @@ services:
             - { name: validator.constraint_validator, alias: closed_days_validator }
 
     App\Validator\Constraints\MaxPeoplePerTimeValidator:
-        arguments:
-            - '@App\Repository\BookingRepository'
+        arguments: [ '@App\Repository\BookingRepository' ]
         tags:
-            - name: validator.constraint_validator
-              alias: MaxPeoplePerTime
+            - { name: validator.constraint_validator, alias: max_people_per_time_validator }
+
+    Doctrine\Persistence\ObjectManager:
+        alias: doctrine.orm.default_entity_manager
 
 
