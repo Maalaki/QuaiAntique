@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Booking;
 use App\Validator\Constraints\ClosedDays;
 use App\Validator\Constraints\MaxPeoplePerTime;
+use DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -75,7 +76,10 @@ class BookingType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(),
                     new MaxPeoplePerTime()
-                ]
+                ],
+                'model_timezone' => 'Europe/Paris',
+                'view_timezone' => 'Europe/Paris',
+                'reference_date' => new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'))
             ])
             ->add('customersNb', IntegerType::class, [
                 'attr' => [
