@@ -14,10 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\EntityListeners(['App\EntityListener\UserListener'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Id]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\NotBlank]
