@@ -32,7 +32,9 @@ class MaxCustomersPerTimeValidator extends ConstraintValidator
         $customersNb = $booking->getCustomersNb();
         $maxCustomersPerTime = 10;
 
-        $bookings = $this->entityManager->getRepository(Booking::class)->findBy(['arrivalTime' => $time]);
+        $bookings = $this->entityManager->getRepository(Booking::class)->findBy([
+            'arrivalTime' => $time,
+            'date' => $booking->getDate()]);
 
         $totalCustomers = $customersNb;
         foreach ($bookings as $existingBooking) {
