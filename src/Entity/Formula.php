@@ -30,6 +30,14 @@ class Formula
         return $this->id;
     }
 
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
     public function getTitle(): ?string
     {
         return $this->title;
