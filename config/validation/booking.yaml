@@ -1,3 +1,0 @@
-App\Entity\Booking:
-  constraints:
-    - App\Validator\Constraints\MaxBooking: ~

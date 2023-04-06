@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\BookingRepository;
 use DateTimeInterface;
-use App\Validator\Constraints\MaxPeoplePerTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,16 +18,15 @@ class Booking
 
     #[ORM\Column(type: Types::INTEGER)]
     #[Assert\NotBlank]
-    #[MaxPeoplePerTime]
     private ?int $customersNb = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     #[Assert\NotBlank]
     private ?DateTimeInterface $date = null;
 
-    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
+    #[ORM\Column]
     #[Assert\NotBlank]
-    private ?DateTimeInterface $arrivalTime = null;
+    private ?string $arrivalTime = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $allergy = null;
@@ -74,12 +72,12 @@ class Booking
         return $this;
     }
 
-    public function getArrivalTime(): ?DateTimeInterface
+    public function getArrivalTime(): ?string
     {
         return $this->arrivalTime;
     }
 
-    public function setArrivalTime(DateTimeInterface $arrivalTime): self
+    public function setArrivalTime(string $arrivalTime): self
     {
         $this->arrivalTime = $arrivalTime;
 

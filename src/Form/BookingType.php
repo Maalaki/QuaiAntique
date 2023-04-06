@@ -4,15 +4,14 @@ namespace App\Form;
 
 use App\Entity\Booking;
 use App\Validator\Constraints\ClosedDays;
-use App\Validator\Constraints\MaxPeoplePerTime;
-use DateTime;
+use App\Validator\Constraints\MaxCustomersPerTime;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -21,6 +20,8 @@ class BookingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $hours = ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '19:00', '19:15', '19:30', '19:45', '20:00', '20:15', '20:30', '20:45', '21:00', '21:15', '21:30'];
+
         $builder
             ->add('name', TextType::class, [
                 'attr' => [
@@ -61,11 +62,8 @@ class BookingType extends AbstractType
                     new ClosedDays()
                 ]
             ])
-            ->add('arrivalTime', TimeType::class, [
-                'widget' => 'choice',
-                'input' => 'datetime_immutable',
-                'hours' => [12, 13, 19, 20],
-                'minutes' => [00, 15, 30, 45],
+            ->add('arrivalTime', ChoiceType::class, [
+                'choices' => array_combine($hours, $hours),
                 'attr' => [
                     'class' => 'form-control'
                 ],
@@ -75,11 +73,8 @@ class BookingType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
-                    new MaxPeoplePerTime()
+                    new MaxCustomersPerTime()
                 ],
-                'model_timezone' => 'Europe/Paris',
-                'view_timezone' => 'Europe/Paris',
-                'reference_date' => new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'))
             ])
             ->add('customersNb', IntegerType::class, [
                 'attr' => [
@@ -94,6 +89,7 @@ class BookingType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(),
                     new Assert\Positive(),
+                    new MaxCustomersPerTime()
                 ]
             ])
             ->add('allergy', TextType::class, [
@@ -119,6 +115,9 @@ class BookingType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Booking::class,
+            'constraints' => [
+                new MaxCustomersPerTime(['timeField' => 'arrivalTime'])
+            ]
         ]);
     }
 }
