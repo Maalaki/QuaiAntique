@@ -100,7 +100,8 @@ class BookingType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label'
                 ],
-                'required' => false
+                'required' => false,
+                'data' => $options['allergy']
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => [
@@ -110,14 +111,15 @@ class BookingType extends AbstractType
             ])
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Booking::class,
             'constraints' => [
                 new MaxCustomersPerTime(['timeField' => 'arrivalTime'])
-            ]
+            ],
+            'allergy' => null,
         ]);
     }
+
 }

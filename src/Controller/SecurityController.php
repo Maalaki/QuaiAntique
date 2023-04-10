@@ -59,7 +59,12 @@ class SecurityController extends AbstractController
     {
         $booking = new Booking();
 
-        $form = $this->createForm(BookingType::class, $booking);
+        $user = $this->getUser();
+        $allergy = $user?->getAllergy();
+
+        $form = $this->createForm(BookingType::class, $booking, [
+            'allergy' => $allergy,
+        ]);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {

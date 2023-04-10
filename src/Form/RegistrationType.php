@@ -80,9 +80,9 @@ class RegistrationType extends AbstractType
                     'class' => 'form-label mt-1'
                 ],
                 'constraints' => [
-                    new Assert\Length(['min' => 1, 'max' => 10])
+                    new Assert\Length(['min' => 1, 'max' => 6])
                 ],
-                'help' => 'Vous pouvez indiquer ici un nombre de convives préféré entre 1 et 10.'
+                'help' => 'Vous pouvez indiquer ici un nombre de convives préféré entre 1 et 6.'
             ])
             ->add('allergy', TextType::class, [
                 'attr' => ['form-control',
