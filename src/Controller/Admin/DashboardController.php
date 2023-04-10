@@ -6,6 +6,7 @@ use App\Entity\Hours;
 use App\Entity\Booking;
 use App\Entity\Formula;
 use App\Entity\Menu;
+use App\Entity\Pictures;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -38,5 +39,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Menus', 'fa-solid fa-heart',Formula::class);
         yield MenuItem::linkToCrud('Réservations', 'fa-solid fa-people-group', Booking::class);
         yield MenuItem::linkToCrud('Horaires', 'fa-solid fa-clock', Hours::class);
+        yield MenuItem::linkToCrud('Images', 'fa-solid fa-image', Pictures::class);
     }
 }

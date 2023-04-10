@@ -10,17 +10,16 @@
             <div class="col-sm">
                 <div class="card h-100">
                     <img
-                            src="{{ asset('/img/tartiflette.jpg') }}"
+                            src="{{ vich_uploader_asset(picture1, 'previewFile') }}"
                             class="card-img-top"
-                            alt="La tartiflette"
-                            title="Notre Tartiflette"
+                            alt="{{ picture1.cardTitle }}"
+                            title="{{ picture1.title }}"
                     />
 
                     <div class="card-body text-center">
-                        <h5 class="card-title">Tartiflette</h5>
+                        <h5 class="card-title">{{ picture1.cardTitle }}</h5>
                         <p class="card-text">
-                            Savourez ce classique de la cuisine savoyarde en version
-                            gastronomique.
+                            {{ picture1.description }}
                         </p>
                     </div>
                 </div>
@@ -28,17 +27,16 @@
             <div class="col-sm">
                 <div class="card h-100">
                     <img
-                            src="{{ asset('/img/fondue-savoyarde.jpg') }}"
+                            src="{{ vich_uploader_asset(picture2, 'previewFile') }}"
                             class="card-img-top"
-                            alt="La fondue savoyarde"
-                            title="Notre Fondue Savoyarde"
+                            alt="{{ picture2.cardTitle }}"
+                            title="{{ picture2.title }}"
                     />
 
                     <div class="card-body text-center">
-                        <h5 class="card-title">Fondue savoyarde</h5>
+                        <h5 class="card-title">{{ picture2.cardTitle }}</h5>
                         <p class="card-text">
-                            Dégustez notre fondue savoyarde à base de Beaufort, Abondance et
-                            meule de Savoie.
+                            {{ picture2.description }}
                         </p>
                     </div>
                 </div>
@@ -46,17 +44,16 @@
             <div class="col-sm">
                 <div class="card h-100">
                     <img
-                            src="{{ asset('/img/croziflette.jpg') }}"
+                            src="{{ vich_uploader_asset(picture3, 'previewFile') }}"
                             class="card-img-top"
-                            alt=" La croziflette"
-                            title="Notre Croziflette"
+                            alt="{{ picture3.cardTitle }}"
+                            title="{{ picture3.title }}"
                     >
 
                     <div class="card-body text-center">
-                        <h5 class="card-title">Croziflette</h5>
+                        <h5 class="card-title">{{ picture3.cardTitle }}</h5>
                         <p class="card-text">
-                            Découvrez cette spécialité savoyarde à base de crozets, de
-                            jambon cru et de Reblochon.
+                            {{ picture3.description }}
                         </p>
                     </div>
                 </div>

@@ -10,7 +10,6 @@ use Faker\Generator;
 use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
@@ -18,7 +17,10 @@ class AppFixtures extends Fixture
     /**
      * @var Generator
      */
+    //faker est un générateur de fixtures qui permet de donner des valeurs factices à nos entités
+    //à des fins de test.
     private Generator $faker;
+
 
     public function __construct()
     {
@@ -27,6 +29,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        //Création de du role administrateur donnant accès à la gestion du site via l'espace d'administration.
         $admin = new User();
         $admin->setEmail('admin@quaiantique.com')
             ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
@@ -36,19 +39,21 @@ class AppFixtures extends Fixture
         $users[] = $admin;
         $manager->persist($admin);
 
-        // Création d'une boucle qui va créer 50 articles aléatoires
-        // Chaque article aura un titre, un contenu, une date de publication qui seront générés aléatoirement
-        for ($i=1; $i <= 10; $i++) {
+        // Création d'une boucle qui va créer 20 utilisateurs aléatoires
+        // Chaque utilisateur aura un email, un role, un nombre de convives préféré,
+        // une mention d'allergie et un mot de passe qui seront générés aléatoirement.
+        for ($i=1; $i <= 20; $i++) {
             $user = new User();
             $user->setEmail($this->faker->email())
                 ->setRoles(['ROLE_USER'])
-                ->setCustomersNb($this->faker->numberBetween($int1 = 0,$int2 = 10))
+                ->setCustomersNb($this->faker->numberBetween($int1 = 0,$int2 = 6))
                 ->setAllergy($this->faker->text())
                 ->setPlainPassword('password');
 
             $manager->persist($user);
         }
 
+        //Création des plats et boissons de la carte, ils seront modifiables depuis l'espace d'administration.
         $menu1 = new Menu();
         $menu1->setCategory('Entrée')
             ->setTitle('Œuf cocotte au fromage et lardons')
@@ -229,6 +234,7 @@ class AppFixtures extends Fixture
         $menu[] = $menu20;
         $manager->persist($menu20);
 
+        //Création des menus proposés, ils seront modifiables depuis l'espace d'administration.
         $formula1 = new Formula();
         $formula1->setTitle('Menu découverte')
             ->setFormulaType('Entrée + Plat ou Plat + Dessert')
@@ -247,6 +253,7 @@ class AppFixtures extends Fixture
         $formula[] = $formula2;
         $manager->persist($formula2);
 
+        //Création des horaires d'ouverture, ils seront modifiables depuis l'espace d'administration.
         $ophours1 = new Hours();
         $ophours1->setDay('Lundi')
             ->setTime('Fermé')
