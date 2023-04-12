@@ -27,11 +27,10 @@ class FormulaCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextField::new('formulaType'),
-            TextEditorField::new('description'),
-            NumberField::new('price')
+            TextField::new('title', 'Titre'),
+            TextField::new('formulaType', 'Type de menu'),
+            TextEditorField::new('description', 'Description'),
+            NumberField::new('price', 'Prix (en €)')
         ];
     }
 }

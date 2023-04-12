@@ -26,12 +26,12 @@ class BookingCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            TextField::new('email'),
-            DateField::new('date')->setFormat('dd-MM-yyy'),
-            TextField::new('arrivalTime'),
-            NumberField::new('customersNb'),
-            TextField::new('allergy')
+            TextField::new('name', 'Nom'),
+            TextField::new('email', 'Adresse e-mail'),
+            DateField::new('date', 'Date de réservation')->setFormat('dd-MM-yyy'),
+            TextField::new('arrivalTime', 'Heure d\'arrivée'),
+            NumberField::new('customersNb', 'Nombre de convives'),
+            TextField::new('allergy', 'Mention d\'allergies')
         ];
     }
 }

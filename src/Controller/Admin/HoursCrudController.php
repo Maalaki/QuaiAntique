@@ -25,10 +25,9 @@ class HoursCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('day'),
-            TextField::new('time'),
-            TextField::new('afternoon')
+            TextField::new('day', 'Jour'),
+            TextField::new('time', 'Horaire du midi'),
+            TextField::new('afternoon', 'Horaire du soir')
         ];
     }
 }

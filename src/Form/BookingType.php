@@ -90,7 +90,8 @@ class BookingType extends AbstractType
                     new Assert\NotBlank(),
                     new Assert\Positive(),
                     new MaxCustomersPerTime()
-                ]
+                ],
+                'data' => $options['customersNb']
             ])
             ->add('allergy', TextType::class, [
                 'attr' => [
@@ -119,6 +120,7 @@ class BookingType extends AbstractType
                 new MaxCustomersPerTime(['timeField' => 'arrivalTime'])
             ],
             'allergy' => null,
+            'customersNb' => null,
         ]);
     }
 

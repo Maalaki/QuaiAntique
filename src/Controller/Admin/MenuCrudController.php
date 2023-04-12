@@ -27,11 +27,10 @@ class MenuCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('category'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-            NumberField::new('price')
+            TextField::new('category', 'Catégorie'),
+            TextField::new('title', 'Titre'),
+            TextEditorField::new('description', 'Description'),
+            NumberField::new('price', 'Prix (en €)')
         ];
     }
 }
