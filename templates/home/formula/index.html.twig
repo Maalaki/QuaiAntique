@@ -7,21 +7,22 @@
 
     <div class="container">
         <div class="formulaPageTitle"><h1>Nos Menus</h1></div>
-        <br/>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col mb-5">
-                    {% for formulaitem in formula %}
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title formulaTitle">{{ formulaitem.title }}</h5>
-                                <p class="card-text formulaSet">{{ formulaitem.formulaType }}</p>
-                            </div>
-                            <div class="card-footer formulaPrice">{{ formulaitem.price }}€</div>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="row justify-content-center">
+                {% for formulaitem in formula %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title formulaTitle">{{ formulaitem.title }}</h5>
+                            <p class="card-text formulaSet">{{ formulaitem.formulaType }}</p>
                         </div>
-                    {% endfor %}
+                        <div class="card-footer formulaPrice">{{ formulaitem.price }}€</div>
+                    </div>
+                    <br>
                 </div>
-            </div>
+                {% endfor %}
         </div>
     </div>
 {% endblock %}

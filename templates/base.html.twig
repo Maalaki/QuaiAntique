@@ -22,8 +22,8 @@
 <!-- Navigation bar -->
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand abs" href="/">Le Quai Antique</a>
+    <div class="container">
+        <a class="navbar-brand abs" aria-current="page" href="/">Le Quai Antique</a>
         <button
                 class="navbar-toggler"
                 role="button"
@@ -40,7 +40,6 @@
                 <li class="nav-item">
                     <a
                             class="nav-link navigation"
-                            aria-current="page"
                             href="/menu"
                     >Carte</a
                     >
@@ -76,8 +75,8 @@
 {% endblock %}
 
 <!-- Footer with opening hours -->
-<div>
+<footer>
     {{ render(path('hours')) }}
-</div>
+</footer>
 </body>
 </html>
