@@ -77,6 +77,6 @@ DirectoryIndex index.php
         Header set X-Permitted-Cross-Domain-Policies "none"
         Header set Referrer-Policy "no-referrer"
         Header set X-Content-Type-Options: nosniff
-        Header set Content-Security-Policy "default-src 'self';font-src fonts.gstatic.com 'self' data:;style-src 'self' fonts.googleapis.com;"
+        Header set Content-Security-Policy "default-src 'self' data:;font-src fonts.gstatic.com 'self' data:;style-src 'self' fonts.googleapis.com;"
         Header set Permissions-Policy "geolocation=('self')"
 </ifModule>
