@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Formula;
 use App\Entity\Hours;
 use App\Entity\Menu;
+use App\Entity\Pictures;
 use Faker\Factory;
 use Faker\Generator;
 use App\Entity\User;
@@ -309,6 +310,33 @@ class AppFixtures extends Fixture
 
         $ophours[] = $ophours7;
         $manager->persist($ophours7);
+
+        $picture1 = new Pictures();
+        $picture1->setTitle('Tartiflette')
+            ->setPreview('tartiflette.jpg')
+            ->setCardTitle('Notre tartiflette')
+            ->setDescription('Savourez ce classique de la cuisine savoyarde en version gastronomique.');
+
+        $picture[] = $picture1;
+        $manager->persist($picture1);
+
+        $picture2 = new Pictures();
+        $picture2->setTitle('Fondue Savoyarde')
+            ->setPreview('fondue-savoyarde.jpg')
+            ->setCardTitle('Notre fondue savoyarde')
+            ->setDescription('Dégustez notre fondue savoyarde à base de Beaufort, Abondance et meule de Savoie.');
+
+        $picture[] = $picture2;
+        $manager->persist($picture2);
+
+        $picture3 = new Pictures();
+        $picture3->setTitle('Croziflette')
+            ->setPreview('croziflette.jpg')
+            ->setCardTitle('Notre croziflette')
+            ->setDescription('Découvrez cette spécialité savoyarde à base de crozets, de jambon cru et de Reblochon.');
+
+        $picture[] = $picture3;
+        $manager->persist($picture3);
 
         $manager->flush();
     }
