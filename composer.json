@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
+        "aws/aws-sdk-php": "^3.269",
         "doctrine/annotations": "^1.14",
         "doctrine/doctrine-bundle": "^2.9",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
