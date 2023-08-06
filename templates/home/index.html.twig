@@ -10,10 +10,12 @@
             <div class="col-sm">
                 <div class="card h-100">
                     <img
-                            src="{{ vich_uploader_asset(picture1, 'previewFile') }}"
+
+                            src="{{ asset('img/tartiflette.jpg') }}"
                             class="card-img-top"
                             alt="{{ picture1.cardTitle }}"
                             title="{{ picture1.title }}"
+
                     />
 
                     <div class="card-body text-center">
@@ -27,7 +29,7 @@
             <div class="col-sm">
                 <div class="card h-100">
                     <img
-                            src="{{ vich_uploader_asset(picture2, 'previewFile') }}"
+                            src="{{ asset('img/fondue-savoyarde.jpg') }}"
                             class="card-img-top"
                             alt="{{ picture2.cardTitle }}"
                             title="{{ picture2.title }}"
@@ -44,7 +46,7 @@
             <div class="col-sm">
                 <div class="card h-100">
                     <img
-                            src="{{ vich_uploader_asset(picture3, 'previewFile') }}"
+                            src="{{ asset('img/croziflette.jpg') }}"
                             class="card-img-top"
                             alt="{{ picture3.cardTitle }}"
                             title="{{ picture3.title }}"
@@ -73,3 +75,7 @@
     </div>
     <br/>
 {% endblock %}
+
+{# src="{{ vich_uploader_asset(picture1, 'previewFile') }}" #}
+{# "{{ vich_uploader_asset(picture2, 'previewFile') }}"
+{# "{{ vich_uploader_asset(picture3, 'previewFile') }}" #}
